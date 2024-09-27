@@ -23,38 +23,38 @@ This project focuses on improving traffic flow by integrating IoT devices and ma
 ## 🚧 Project Roadmap
 
 ### 🖥️ Jetson Nano and YOLO Implementation
-- [x] **Acquire Jetson Nano hardware**
-  _Status: Completed_
+- [x]  **Acquire Jetson Nano hardware**
+  _Status: Completed_ ✅
 - [x] **Train YOLO model on custom dataset**  
-  _Status: Completed_
+  _Status: Completed_ ✅
 - [x] **Integrate DeepSort into YOLO**  
-  _Status: Completed_
-- [ ] <span style="color:green">**Extend the model to run detections on a 4-way junction (using a stock video)**</span>  
-  _Status: Open_
-- [ ] <span style="color:green">**Check compatibility of module dependencies with Jetson Nano**</span>  
-  _Status: Open_
-- [ ] <span style="color:green">**Check if its possible to Upgrade Jetson Nano to at least Ubuntu 20.04**</span>  
-  _Status: Open_
-- [ ] <span style="color:green">**Run YOLO on Jetson Nano for real-time detection (using a stock video)**</span>  
-  _Status: Open_
-- [ ] <span style="color:green">**Integrate OAK-D Lite Camera on Jetson Nano**</span>  
-  _Status: Open_
-- [ ] <span style="color:green">**Perform real-time vehicle detection using the live camera feed**</span>  
-  _Status: Open_
+  _Status: Completed_ ✅
+- [ ] **Extend the model to run detections on a 4-way junction (using a stock video)**
+  _Status: Open_ 🟢
+- [ ] **Check compatibility of module dependencies with Jetson Nano**
+  _Status: Open_ 🟢
+- [ ] **Check if its possible to Upgrade Jetson Nano to at least Ubuntu 20.04**  
+  _Status: Open_ 🟢
+- [ ] **Run YOLO on Jetson Nano for real-time detection (using a stock video)**
+  _Status: Open_ 🟢
+- [ ] **Integrate OAK-D Lite Camera on Jetson Nano**
+  _Status: Open_ 🟢
+- [ ] **Perform real-time vehicle detection using the live camera feed**
+  _Status: Open_ 🟢
 
 ### ☁️ Cloud Integration
 - [x] **Sign up for AWS free tier and obtain credits**  
-  _Status: Completed_
+  _Status: Completed_ ✅
 - [x] **Design cloud architecture in AWS**  
-  _Status: Completed_
+  _Status: Completed_ ✅
 - [x] **Register Jetson Nano in AWS IoT Core and establish a connection**  
-  _Status: Completed_
-- [ ] <span style="color:green">**Send detection results from Jetson Nano to AWS IoT Core**</span>  
-  _Status: Open_
-- [ ] <span style="color:green">**Define data format and transmission frequency to AWS IoT Core**</span>  
-  _Status: Open_
-- [ ] <span style="color:red">**Decide post-receipt processing of data in AWS IoT Core**</span>  
-  _Status: Blocked_
+  _Status: Completed_ ✅
+- [ ] **Send detection results from Jetson Nano to AWS IoT Core**
+  _Status: Open_ 🟢
+- [ ] **Define data format and transmission frequency to AWS IoT Core**
+  _Status: Open_ 🟢
+- [ ] **Decide post-receipt processing of data in AWS IoT Core**
+  _Status: Blocked_ 🔴
 
 
 
