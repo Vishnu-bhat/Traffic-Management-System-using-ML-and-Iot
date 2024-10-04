@@ -23,37 +23,45 @@ This project focuses on improving traffic flow by integrating IoT devices and ma
 ## 🚧 Project Roadmap
 
 ### 🖥️ Jetson Nano and YOLO Implementation
-- [x]  **Acquire Jetson Nano hardware**
+- [x]  **Acquire Jetson Nano hardware**\
+    _Status: Completed_ ✅
+- [x] **Train YOLO model on custom dataset** \
   _Status: Completed_ ✅
-- [x] **Train YOLO model on custom dataset**  
+- [x] **Integrate DeepSort into YOLO**  \
   _Status: Completed_ ✅
-- [x] **Integrate DeepSort into YOLO**  
-  _Status: Completed_ ✅
-- [ ] **Extend the model to run detections on a 4-way junction (using a stock video)**
+- [X] **Check compatibility of module dependencies with Jetson Nano**\
+  _Status: Completed_ ✅\
+  **Note:** Downgraded to python 3.6.9 on Jetson nano and built pytorch , openCV ,numpy
+           etc from the source. Jetson nano using CUDA v10.2 , Python v3.6.9 ,Pytorch v1.10.1 and torchvision v0.11.1
+           Made several changes to the deep_sort and ultaralytics (YOLO V8) modules to make it compatible with these               versions
+- [ ] **Run YOLO on Jetson Nano for real-time detection (using a stock video)**\
+  _Status: Completed_ ✅\
+  **Note:** But the execution is slow that we need to research on ways to optimize the execution.
+            Already disabled the GUI interface and increased performance , but need to research on 
+            more optimizations
+- [ ] **Extend the model to run detections on a 4-way junction (using a stock video)**\
   _Status: Open_ 🟢
-- [ ] **Check compatibility of module dependencies with Jetson Nano**
+- [ ] **Optimize the detection in Jetson Nano**\
   _Status: Open_ 🟢
-- [ ] **Check if its possible to Upgrade Jetson Nano to at least Ubuntu 20.04**  
+- [ ] **Integrate OAK-D Lite Camera on Jetson Nano**\
   _Status: Open_ 🟢
-- [ ] **Run YOLO on Jetson Nano for real-time detection (using a stock video)**
-  _Status: Open_ 🟢
-- [ ] **Integrate OAK-D Lite Camera on Jetson Nano**
-  _Status: Open_ 🟢
-- [ ] **Perform real-time vehicle detection using the live camera feed**
+- [ ] **Perform real-time vehicle detection using the live camera feed**\
   _Status: Open_ 🟢
 
 ### ☁️ Cloud Integration
-- [x] **Sign up for AWS free tier and obtain credits**  
+- [x] **Sign up for AWS free tier and obtain credits**  \
+  _Status: Completed_ ✅ \
+  **Note:** Applied for several programmes and completed surveys for free credit .Didn't got any reply till now.
+  
+- [x] **Design cloud architecture in AWS**  \
   _Status: Completed_ ✅
-- [x] **Design cloud architecture in AWS**  
+- [x] **Register Jetson Nano in AWS IoT Core and establish a connection**  \
   _Status: Completed_ ✅
-- [x] **Register Jetson Nano in AWS IoT Core and establish a connection**  
-  _Status: Completed_ ✅
-- [ ] **Send detection results from Jetson Nano to AWS IoT Core**
+- [ ] **Send detection results from Jetson Nano to AWS IoT Core**\
   _Status: Open_ 🟢
-- [ ] **Define data format and transmission frequency to AWS IoT Core**
+- [ ] **Define data format and transmission frequency to AWS IoT Core**\
   _Status: Open_ 🟢
-- [ ] **Decide post-receipt processing of data in AWS IoT Core**
+- [ ] **Decide post-receipt processing of data in AWS IoT Core**\
   _Status: Blocked_ 🔴
 
 
