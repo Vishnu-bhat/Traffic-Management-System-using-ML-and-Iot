@@ -3,7 +3,7 @@ import pandas as pd
 from ultralytics import YOLO
 import cvzone
 import numpy as np
-
+import time
 import math
 
 from deep_sort.deep_sort.tracker import Tracker as DeepSortTracker
@@ -168,8 +168,11 @@ while True:
         if cy1<(cy+offset) and cy1>(cy-offset):
            cv2.rectangle(frame, (int(x3), int(y3)), (int(x4), int(y4)), (0, 255, 0), 2)
            cvzone.putTextRect(frame, f'{id}', (int(x3), int(y3)), 1, 1)
+           
+           time_bus = time.time()
            if bus.count(id)==0:
-              bus.append(id)
+              bus.append((id,time_bus))
+              print("BUS",(len(bus)), "at ",time_bus )
 #CAR
     for track1 in bbox1_idx:
         bbox1=track1.bbox
@@ -180,8 +183,11 @@ while True:
         if cy1<(cy2+offset) and cy1>(cy2-offset):
            cv2.rectangle(frame, (int(x5), int(y5)), (int(x6), int(y6)), (0, 255, 0), 2)
            cvzone.putTextRect(frame, f'{id1}', (int(x5), int(y5)), 1, 1)
+           
+           time_car = time.time()
            if car.count(id1)==0:
-              car.append(id1)
+              car.append((id1,time_car))
+              print("CAR",(len(car)),"at ",time_car)
 #auto-rikshaw
     for track2 in bbox2_idx:
         bbox2=track2.bbox
@@ -192,8 +198,11 @@ while True:
         if cy1<(cy3+offset) and cy1>(cy3-offset):
            cv2.rectangle(frame, (int(x7), int(y7)), (int(x8), int(y8)), (0, 255, 0), 2)
            cvzone.putTextRect(frame,f'{id2}',(int(x7),int(y7)),1,1)
+           
+           time_auto = time.time()
            if auto_rikshaw.count(id2)==0:
-              auto_rikshaw.append(id2)
+              auto_rikshaw.append((id2,time_auto))
+              print("AUTO_RIKSHAW",(len(auto_rikshaw)),"at ",time_auto)
 #motorcycle
     for track3 in bbox3_idx:
         bbox3=track3.bbox
@@ -204,25 +213,30 @@ while True:
         if cy1<(cy4+offset) and cy1>(cy4-offset):
            cv2.rectangle(frame, (int(x9), int(y9)), (int(x10), int(y10)), (0, 255, 0), 2)
            cvzone.putTextRect(frame, f'{id3}', (int(x9), int(y9)), 1, 1)
+           
+           time_motor = time.time()
            if motorcycle.count(id3)==0:
-              motorcycle.append(id3)          
+              motorcycle.append((id3,time_motor))
+              print("MOTORCYCLE",(len(motorcycle)),"at ",time_motor)
+       
+                 
     countbus=(len(bus))
     countcar=(len(car))
     countauto_rikshaw=(len(auto_rikshaw))
     countmotorcycle=(len(motorcycle))
+    
     cvzone.putTextRect(frame,f'Auto_Rikshaw : {countauto_rikshaw}',(50,60),scale=2,thickness=2,colorR=(0,0,255))
     cvzone.putTextRect(frame,f'Bus : {countbus}',(50,120),scale=2,thickness=2,colorR=(0,0,255))
     cvzone.putTextRect(frame,f'Car : {countcar}',(50,180),scale=2,thickness=2,colorR=(0,0,255))
     cvzone.putTextRect(frame,f'MotorCycle : {countmotorcycle}',(50,240),scale=2,thickness=2,colorR=(0,0,255))
 
-
     cv2.line(frame,(405,427),(580,427),(255,255,255),2)
     cv2.imshow("RGB", frame)
     if cv2.waitKey(1)&0xFF==27:
+        print
         break
 cap.release()    
 cv2.destroyAllWindows()
-
 
 
 
