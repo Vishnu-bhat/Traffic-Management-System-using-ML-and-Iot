@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="Header">
+        <h1>Traffic Management System</h1>
+    </div>
+    <div class="tabs-container">
+
+        <div class="tabs">
+            <div class="tab active" onclick="openTab(event, 'tab1')">Tab 1</div>
+            <div class="tab" onclick="openTab(event, 'tab2')">Tab 2</div>
+            <div class="tab" onclick="openTab(event, 'tab3')">Tab 3</div>
+        </div>
+
+        <div id="tab1" class="content active">
+            <h2>Welcome to Tab 1</h2>
+            <p>Traffic Management System using Machine Learning and IoT . </p>
+        </div>
+
+        <div id="tab2" class="content">
+            <h2>Welcome to Tab 2</h2>
+            <p>Google Map. </p>
+            <div id="map"></div>
+        </div>
+
+        <div id="tab3" class="content">
+            <h2>Welcome to Tab 3</h2>
+            <p>This is the content for Tab 3.</p>
+        </div>
+    </div>
+
+    <script src="Javascript.js"></script>
+
+</body>
+</html>
+
