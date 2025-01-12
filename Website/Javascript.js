@@ -1,12 +1,12 @@
         function openTab(event, tabId) {
-            // Remove active class from all tabs and content
+            // Remove active class
             const tabs = document.querySelectorAll('.tab');
             const contents = document.querySelectorAll('.content');
 
             tabs.forEach(tab => tab.classList.remove('active'));
             contents.forEach(content => content.classList.remove('active'));
 
-            // Add active class to the clicked tab and corresponding content
+            // Add active class 
             event.currentTarget.classList.add('active');
             document.getElementById(tabId).classList.add('active');
         }
