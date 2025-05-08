@@ -1,72 +1,76 @@
-# 🚦 Traffic Management System Using IoT and Machine Learning
+# 🚦 Intelligent Traffic Management System
 
+A real-time, AI-powered traffic optimization platform developed in collaboration with the University of Gustave Eiffel, France, funded by CIFIPRA. The project leverages computer vision, machine learning, and IoT to minimize congestion at road intersections.
 
-**The Traffic Management System Using IoT and Machine Learning** project aims to enhance urban traffic management by detecting real-time vehicle flow and analyzing the data to reduce congestion. Utilizing a Jetson Nano with a YOLO object detection model, the system detects vehicles such as cars, bikes, and autorickshaws. The vehicle data is transmitted to the cloud using the MQTT protocol, interfacing with AWS IoT Core. The long-term goal is to leverage this data to build a predictive model for traffic patterns and integrate it into a digital twin using VSim software.
+This project is a real-time, AI-driven traffic signal optimization system designed to minimize average vehicle delay across intersections using live video feeds, IoT infrastructure, and machine learning.
 
----
+## 🌐 Overview
 
-## 📑 Project Overview
+The system integrates live video processing, predictive modeling, and a responsive web dashboard to analyze and optimize traffic signal timing dynamically.
 
-This project focuses on improving traffic flow by integrating IoT devices and machine learning algorithms. A Jetson Nano device running the YOLO object detection model identifies different types of vehicles in real-time at a 4-way intersection. Data is sent to the cloud using AWS IoT Core, where it is stored and analyzed for traffic optimization. Future work includes determining the format of data for VSim import and defining data handling workflows in AWS.
+![Picture5](https://github.com/user-attachments/assets/af85fe56-19e6-4a55-8910-d692cd79e4cc)
 
----
+## 📌 Project Highlights
 
-## 🛠️ Technologies Used
+- **Real-Time Vehicle Detection & Tracking**
+  - YOLOv11 for custom object detection trained on Indian traffic scenarios.
+  - DeepSORT for multi-object tracking and unique ID-based vehicle counting.
 
-- **Hardware**: Jetson Nano, OAK-D Lite Camera
-- **Machine Learning**: YOLO Object Detection, DeepSort
-- **Cloud**: AWS IoT Core ( AWS Free Tier)
-- **Software**: VSim, Python, Ubuntu
+- **Edge Processing**
+  - NVIDIA Jetson Nano used for on-device inference and video analytics.
+  - Optimized using CUDA, cuDNN, and TensorRT.
 
----
+- **Cloud Communication**
+  - MQTT protocol used for lightweight real-time data transfer to AWS IoT Core.
+  - Serverless backend using AWS Lambda, DynamoDB, and API Gateway.
 
-## 🚧 Project Roadmap
+- **Machine Learning**
+  - XGBoost Regression model predicts optimal green signal durations.
+  - Model trained on SUMO-simulated delay data for multiple signal configurations.
 
-### 🖥️ Jetson Nano and YOLO Implementation
-- [x]  **Acquire Jetson Nano hardware**\
-    _Status: Completed_ ✅
-- [x] **Train YOLO model on custom dataset** \
-  _Status: Completed_ ✅
-- [x] **Integrate DeepSort into YOLO**  \
-  _Status: Completed_ ✅
-- [X] **Check compatibility of module dependencies with Jetson Nano**\
-  _Status: Completed_ ✅\
-  **Note:** Downgraded to python 3.6.9 on Jetson nano and built pytorch , openCV ,numpy
-           etc from the source. Jetson nano using CUDA v10.2 , Python v3.6.9 ,Pytorch v1.10.1 and torchvision v0.11.1
-           Made several changes to the deep_sort and ultaralytics (YOLO V8) modules to make it compatible with these               versions
-- [ ] **Run YOLO on Jetson Nano for real-time detection (using a stock video)**\
-  _Status: Completed_ ✅\
-  **Note:** But the execution is slow that we need to research on ways to optimize the execution.
-            Already disabled the GUI interface and increased performance , but need to research on 
-            more optimizations
-- [ ] **Extend the model to run detections on a 4-way junction (using a stock video)**\
-  _Status: Open_ 🟢
-- [ ] **Optimize the detection in Jetson Nano**\
-  _Status: Open_ 🟢
-- [ ] **Integrate OAK-D Lite Camera on Jetson Nano**\
-  _Status: Open_ 🟢
-- [ ] **Perform real-time vehicle detection using the live camera feed**\
-  _Status: Open_ 🟢
+- **Visualization**
+  - ReactJS frontend creates a digital twin of the intersection.
+  - Displays live traffic status, vehicle counts, and signal timings.
 
-### ☁️ Cloud Integration
-- [x] **Sign up for AWS free tier and obtain credits**  \
-  _Status: Completed_ ✅ \
-  **Note:** Applied for several programmes and completed surveys for free credit .Didn't got any reply till now.
-  
-- [x] **Design cloud architecture in AWS**  \
-  _Status: Completed_ ✅
-- [x] **Register Jetson Nano in AWS IoT Core and establish a connection**  \
-  _Status: Completed_ ✅
-- [ ] **Send detection results from Jetson Nano to AWS IoT Core**\
-  _Status: Open_ 🟢
-- [ ] **Define data format and transmission frequency to AWS IoT Core**\
-  _Status: Open_ 🟢
-- [ ] **Decide post-receipt processing of data in AWS IoT Core**\
-  _Status: Blocked_ 🔴
+## 🧠 Tech Stack
 
+| Component          | Technology                |
+|--------------------|---------------------------|
+| Object Detection   | YOLOv11 (Custom-trained)  |
+| Tracking           | DeepSORT                  |
+| Edge Device        | NVIDIA Jetson Nano        |
+| Cloud              | AWS IoT Core, Lambda, API Gateway, DynamoDB |
+| ML Model           | XGBoost                   |
+| Visualization      | ReactJS                   |
+| Simulation         | SUMO                      |
+| Data Pipeline      | MQTT                      |
 
+## 🧪 Sample Workflow
 
-## 📁 Repository Structure
-```plaintext
-- /deep_sort       # Original deepsort code forked from repository and did modifications according to out dependencies
-- /main.py     # python script for object detection
+1. Jetson Nano captures live traffic video → detects and tracks vehicles.
+2. Count data is sent to AWS IoT Core via MQTT.
+3. Data is stored in DynamoDB and processed via Lambda.
+4. XGBoost model predicts optimal signal timings based on counts.
+5. Frontend dashboard shows real-time signal state and vehicle flow.
+
+## 📊 Model Performance
+
+- **YOLOv11 + DeepSORT**
+  - mAP@50: 0.913
+  - mAP@50-95: 0.653
+  - Tracking Accuracy: High under occlusions and dense traffic
+
+- **XGBoost Model**
+  - RMSE: 0.3679
+  - R² Score: 0.80
+  - Output: Green signal pair (e.g., 38s, 40s) with minimal average delay
+
+## 🎓 Team
+
+- Vishnu  
+- Mohammed
+- Niya  
+- Govind  
+- Isaac  
+- Under guidance of Dr. Shihabudheen K. V. & Dr. Munavar Fairooz C.
+
