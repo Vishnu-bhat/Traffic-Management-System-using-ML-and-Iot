@@ -8,7 +8,7 @@ This project is a real-time, AI-driven traffic signal optimization system design
 
 The system integrates live video processing, predictive modeling, and a responsive web dashboard to analyze and optimize traffic signal timing dynamically.
 
-![Picture5](https://github.com/user-attachments/assets/af85fe56-19e6-4a55-8910-d692cd79e4cc)
+![Picture5](https://github.com/user-attachments/assets/cae2c66b-68f4-4809-bf2e-4a10d693b528)
 
 ## 📌 Project Highlights
 
